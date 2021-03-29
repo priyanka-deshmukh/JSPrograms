@@ -15,7 +15,7 @@
  * Why start j with i?
  *  as j is decreasing on every row, it is useful to initialize j with i.
  */
-console.log("Pattern programs...");
+console.log("***************Pattern programs*************");
 
 
 for(let i =5; i>0; i--) {
@@ -41,7 +41,7 @@ for (let k = 1; k < 6; k++) {
     }
     console.log();
 }
-// console.log("____________END_______________");
+console.log("____________END_______________");
 /**
 5_4_3_2_1
 _4_3_2_1_ 
@@ -80,3 +80,4 @@ for(let x =0; x<5; x++) {
     }
     console.log(" ");
 }
+console.log("____________END_______________");

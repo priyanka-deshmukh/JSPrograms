@@ -28,4 +28,8 @@ var generatePascalTriangle = function (numRows) {
     return arr;
 };
 
-generatePascalTriangle(5);
+let opArr = generatePascalTriangle(5);
+
+for(ele of opArr) {
+    console.log(ele);
+}
