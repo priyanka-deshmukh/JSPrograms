@@ -29,12 +29,11 @@ and that "hit" isn't the answer even though it occurs more because it is banned.
 var mostCommonWord = function(paragraph, banned) {
     var punctuationless = paragraph.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
     var finalString = punctuationless.replace(/\s{1,}/g," ");
-    console.log(finalString)
+
   let paraArray = finalString.toLowerCase().split(" ");
     console.log(paraArray);
     let filteredArr = paraArray.filter(w =>  !banned.includes(w))
-    
-    //console.log(filteredArr);
+
     let countObj = {};
     let mostFreqWord = null;
     let mostFreqCount = 0;
@@ -51,6 +50,25 @@ var mostCommonWord = function(paragraph, banned) {
                 mostFreqCount = countObj[w];
             }
     }
-    console.log(countObj);
     return mostFreqWord;
+};
+
+// Same question from leetcode
+var mostCommonWordNew = function(paragraph, banned) {
+    const wordsOld = paragraph.match(/\b(\w+)\b/g).map(k=>k.toLowerCase());
+    const words = wordsOld.filter(n => !banned.includes(n))
+    const uniqueWords = [... new Set(words)];
+    let mapObj = {};
+    let mostUsedCount = 0;
+    let mostUsedWord = "";
+    uniqueWords.forEach(key => mapObj[key] = 0);
+    for(let i=0;i<words.length;i++) {
+        const w = words[i];
+        mapObj[w] = mapObj[w]+1;
+        if(mostUsedCount < mapObj[w]) {
+            mostUsedCount = mapObj[w];
+            mostUsedWord = w;
+        }
+    }
+    return mostUsedWord;
 };
